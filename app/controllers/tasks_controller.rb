@@ -47,13 +47,9 @@ class TasksController < ApplicationController
     redirect_to tasks_url
   end
   
-   def task_params
+   private
+  def task_params
     params.require(:task).permit(:content ,:status)
   end
-  private
-
-  # Strong Parameter
-  def task_params
-    params.require(:task).permit(:content)
-  end
+  
 end
