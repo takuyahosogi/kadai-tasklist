@@ -3,12 +3,14 @@ class TasklistsController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def show
+    @task = current_user.tasks.build(task_params)
     @task.show
     flash[:success]
     redirect_back(fallback_location: root_path)
   end
   
   def edit
+    @task = current_user.tasks.build(task_params)
     @task.edit
     flash[:success] ='タスクを編集しました'
     redirect_back(fallback_location: root_path)
@@ -27,6 +29,7 @@ class TasklistsController < ApplicationController
   end
 
   def destroy
+    @task = current_user.tasks.build(task_params)
     @task.destroy
     flash[:success] = 'タスクを削除しました。'
     redirect_back(fallback_location: root_path)
