@@ -21,6 +21,15 @@ class TasklistsController < ApplicationController
   end
   
   private
+  
+  def show
+  end
+  
+  def edit
+  end
+  
+  def destroy
+  end
 
   def task_params
     params.require(:task).permit(:content)
