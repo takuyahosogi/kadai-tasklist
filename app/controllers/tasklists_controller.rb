@@ -22,23 +22,6 @@ class TasklistsController < ApplicationController
   
   private
   
-  def show
-    @task = current_user.tasks.find_by(id: params[:id])
-    unless @task
-      redirect_to root_url
-    end
-  end
-  
-  def edit
-    @task = current_user.tasks.find_by(id: params[:id])
-    unless @task
-      redirect_to root_url
-    end
-  end
-  
-  def destroy
-    
-  end
 
   def task_params
     params.require(:task).permit(:content)
