@@ -1,6 +1,6 @@
 class TasklistsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:show, :edit, :destroy]
+  before_action :correct_user, only: [:show, :update, :destroy]
   
   def create
     @task = current_user.tasks.build(task_params)
