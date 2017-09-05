@@ -1,6 +1,18 @@
 class TasklistsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  
+  def show
+    @task.show
+    flash[:success]
+    redirect_back(fallback_location: root_path)
+  end
+  
+  def edit
+    @task.edit
+    flash[:success] ='タスクを編集しました'
+    redirect_back(fallback_location: root_path)
+  end
 
   def create
     @task = current_user.tasks.build(task_params)
