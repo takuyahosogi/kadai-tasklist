@@ -4,7 +4,7 @@
       <%= form_for(@task) do |f| %>
         <div class="form-group">
           <%= f.label :status, 'ステータス' %>
-          <%= f.text_field :status, class: 'form-control', rows%>
+          <%= f.text_field :status, class: 'form-control', rows: 5 %>
         </div>
         <div class="form-group">
           <%= f.label :content, 'タスク' %>
