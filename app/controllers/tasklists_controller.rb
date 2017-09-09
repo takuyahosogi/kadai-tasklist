@@ -8,7 +8,7 @@ class TasklistsController < ApplicationController
     params.require(:task).permit(:content)
   end
   
-  def correct_user
+  def current_user
     @task = current_user.tasks.find_by(id: params[:id])
     unless @task
       redirect_to root_url
